@@ -53,85 +53,95 @@ servicesNav.addEventListener('click', function (e) {
 
 //slider
 const slider = function () {
-  const slides = document.querySelectorAll('.slide');
-  const btnLeft = document.querySelector('.slider__btn--left');
-  const btnRight = document.querySelector('.slider__btn--right');
-  const dotContainer = document.querySelector('.dots');
+  // Select all elements with the class 'slide'
+  const slides = document.querySelectorAll(".slide");
 
+  // Select navigation buttons and dot container
+  const btnLeft = document.querySelector(".slider__btn--left");
+  const btnRight = document.querySelector(".slider__btn--right");
+  const dotContainer = document.querySelector(".dots");
+
+  // Initialize variables to keep track of the current slide and the total number of slides
   let curSlide = 0;
   const maxSlide = slides.length;
 
+  // Create dots for each slide
   const createDots = function () {
     slides.forEach(function (_, i) {
       dotContainer.insertAdjacentHTML(
-        'beforeend',
+        "beforeend",
         `<button class="dots__dot dots__dot--active" data-slide="${i}"></button>`
       );
     });
   };
   createDots();
 
+  // Activate the dot corresponding to the current slide
   const activateDot = function (slide) {
     document
-      .querySelectorAll('.dots__dot')
-      .forEach(dot => dot.classList.remove('dots__dot--active'));
+      .querySelectorAll(".dots__dot")
+      .forEach((dot) => dot.classList.remove("dots__dot--active"));
 
     document
       .querySelector(`.dots__dot[data-slide="${slide}"]`)
-      .classList.add('dots__dot--active');
+      .classList.add("dots__dot--active");
   };
   activateDot(0);
 
+  // Position all slides side by side using the 'transform' property
   slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
-  //0%, 100, 200, 300
-  //goto slide
+  // This positions slides at 0%, 100%, 200%, 300%, etc.
+
+  // Function to go to a specific slide
   const goToSlide = function (slide) {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
   };
   goToSlide(0);
-  //Next slide
 
+  // Function to navigate to the next slide
   const nextSlide = function () {
     if (curSlide === maxSlide - 1) {
       curSlide = -1;
     }
     curSlide++;
-
     goToSlide(curSlide);
     activateDot(curSlide);
   };
 
+  // Function to navigate to the previous slide
   const prevSlide = function () {
     if (curSlide === 0) {
       curSlide = maxSlide;
     }
     curSlide--;
-
     goToSlide(curSlide);
     activateDot(curSlide);
   };
 
-  btnRight.addEventListener('click', nextSlide);
-  btnLeft.addEventListener('click', prevSlide);
-  // curSlide = -100, 0, 200
+  // Event listeners for button clicks
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
 
-  document.addEventListener('keydown', function (e) {
-    console.log(e);
-    if (e.key === 'ArrowLeft') {
+  // Event listener for keyboard arrow keys
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") {
       prevSlide();
-    } else if (e.key === 'ArrowRight') {
+    } else if (e.key === "ArrowRight") {
       nextSlide();
     }
   });
 
-  dotContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('dots__dot')) {
+  // Event listener for dot clicks
+  dotContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("dots__dot")) {
       const { slide } = e.target.dataset;
       goToSlide(slide);
       activateDot(slide);
     }
   });
 };
+
 slider();
+
