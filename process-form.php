@@ -5,11 +5,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $message = $_POST["message"];
 
-    // Validate form data (you can add more extensive validation)
+    // Validate form data
     if (empty($name) || empty($email) || empty($message)) {
         echo "Please fill in all fields.";
     } else {
-        // Data is valid; you can process it further (e.g., send an email)
+        // if data is valid
         echo "Thank you for submitting, we will get back to you soon.";
     }
 } else {
