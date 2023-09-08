@@ -1,5 +1,5 @@
 # prints
-A place to buy and sell your digital art and customize it as wall posters. [live preview](https://prints-5rp.pages.dev/) (ONLY LANDING PAGE)
+A place to buy and sell your digital art and customize it as wall posters. [live preview](https://prints-5rp.pages.dev/) (Landing page)
 
 ![scrnli_9_8_2023_10-32-07 AM](https://github.com/Mithesh-B/prints/assets/115478939/34fca8a7-e6f6-4e03-b6ae-d298165e0cb3)
 
