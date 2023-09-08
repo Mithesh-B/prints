@@ -95,7 +95,11 @@ i {
   height: 40vh;
   position: relative;
 }
-
+.x{
+  font-size: 2rem;
+  font-weight: 600;
+font-family: 'Satoshi', sans-serif;
+}
 .circle {
   width: 100px;
   height: 100px;

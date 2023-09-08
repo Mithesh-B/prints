@@ -21,7 +21,12 @@
     <header>
       <nav id="navbar" class="navbar">
         <div class="container_nav">
-          <img src="assets/logo.png" alt="Prints logo" class="logo" />
+          <img
+            loading="lazy"
+            src="assets/logo.png"
+            alt="Prints logo"
+            class="logo"
+          />
           <div id="center" class="center">
             <div></div>
           </div>
@@ -57,7 +62,7 @@
       <div class="container_hero">
         <h1>welcome</h1>
         <div class="circle">
-          <h1>x</h1>
+          <h1 class="x">X</h1>
         </div>
         <h1>prints</h1>
       </div>
@@ -80,21 +85,36 @@
     <!--products cards section-->
     <section class="container_cards">
       <div class="card">
-        <img src="assets/abstract.jpg" alt="Prints logo" class="cardimg" />
+        <img
+          loading="lazy"
+          src="assets/abstract.jpg"
+          alt="Prints logo"
+          class="cardimg"
+        />
 
         <h4>Abstract No. 223</h4>
         <h5>Price: $6</h5>
         <button class="btn--card">Buy now</button>
       </div>
       <div class="card">
-        <img src="assets/house.jpg" alt="Prints logo" class="cardimg" />
+        <img
+          loading="lazy"
+          src="assets/house.jpg"
+          alt="Prints logo"
+          class="cardimg"
+        />
 
         <h4>Indoor No. 56</h4>
         <h5>Price: $5</h5>
         <button class="btn--card">Buy now</button>
       </div>
       <div class="card">
-        <img src="assets/abstract1.jpg" alt="Prints logo" class="cardimg" />
+        <img
+          loading="lazy"
+          src="assets/abstract1.jpg"
+          alt="Prints logo"
+          class="cardimg"
+        />
 
         <h4>Abstract No. 321</h4>
         <h5>Price: $6.76</h5>
@@ -119,7 +139,7 @@
         </p>
       </div>
       <div>
-        <img src="assets/info.png" alt="info" class="infoimg" />
+        <img loading="lazy" src="assets/info.png" alt="info" class="infoimg" />
       </div>
     </section>
     <!--testimonials section-->
@@ -146,7 +166,12 @@
               autem esse non voluptatem.
             </blockquote>
             <address class="testimonial__author">
-              <img src="assets/user-1.jpg" alt="" class="testimonial__photo" />
+              <img
+                loading="lazy"
+                src="assets/user-1.jpg"
+                alt=""
+                class="testimonial__photo"
+              />
               <h6 class="testimonial__name">Aarav Lynn</h6>
               <p class="testimonial__location">San Francisco, USA</p>
             </address>
@@ -165,7 +190,12 @@
               deserunt exercitationem deleniti.
             </blockquote>
             <address class="testimonial__author">
-              <img src="assets/user-2.jpg" alt="" class="testimonial__photo" />
+              <img
+                loading="lazy"
+                src="assets/user-2.jpg"
+                alt=""
+                class="testimonial__photo"
+              />
               <h6 class="testimonial__name">Miyah Miles</h6>
               <p class="testimonial__location">London, UK</p>
             </address>
@@ -185,7 +215,12 @@
               alias reiciendis, perferendis facere.
             </blockquote>
             <address class="testimonial__author">
-              <img src="assets/user-3.jpg" alt="" class="testimonial__photo" />
+              <img
+                loading="lazy"
+                src="assets/user-3.jpg"
+                alt=""
+                class="testimonial__photo"
+              />
               <h6 class="testimonial__name">Francisco Gomes</h6>
               <p class="testimonial__location">Lisbon, Portugal</p>
             </address>
@@ -199,10 +234,10 @@
     <!--contact section-->
     <section class="container_contact">
       <h2>Feel free to say hello!</h2>
-      <form action="#" method="post" id="contact-form">
+      <form action="#" method="post" id="contact-form" onsubmit="return submitForm();">
         <div class="form-group">
           <div>
-            <label for="name" placeholder="ds">Your name</label>
+            <label for="name" >Your name</label>
             <input
               type="text"
               id="name"
@@ -230,17 +265,25 @@
             id="message"
             name="message"
             rows="4"
-            placeholder="Speak your mind!"
+            placeholder="speak your mind!"
             required
           ></textarea>
         </div>
 
         <button type="submit">Submit</button>
       </form>
+        <div id="thank-you-message" style="display: none;">
+            <p>Thank you for submitting, we will get back to you soon.</p>
+        </div>
     </section>
     <!--footer section-->
     <footer class="container_footer">
-      <img src="assets/logo.png" alt="Prints logo" class="footerlogo" />
+      <img
+        loading="lazy"
+        src="assets/logo.png"
+        alt="Prints logo"
+        class="footerlogo"
+      />
 
       <div class="top">
         <div class="item">
@@ -274,6 +317,15 @@
         </div>
       </div>
     </footer>
+    <script>
+        function submitForm() {
+            
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('thank-you-message').style.display = 'block';
+
+            // Prevent the form from actually submitting
+            return false;
+        }
+    </script>
   </body>
 </html>
-
